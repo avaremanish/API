@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    
+      const url="https://restcountries.com/v3.1/all";
+
+ fetch( url)
+
+.then(function (res)
+{
+//console.log(res.json());
+  return res.json();
+})
+.then(function(data)
+{
+     //console.log(data);
+     initialize(data);
+})
+          .catch(function(err)
+          {
+                console.log('Error',err);
+          })  
+
+           function initialize(countriesdata)
+           {    
+               countries=countriesdata;
+               console.log(countriesdata);
+               for(i=0;i<=countries.length;i++)
+               {
+                console.log("Flag of " + countries[i].capital + "is " +countries[i].flag );
+               }
+              
+           }
+
+           
+
+    </script>
+</body>
+</html>
